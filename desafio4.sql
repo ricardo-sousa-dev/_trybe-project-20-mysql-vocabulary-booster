@@ -18,7 +18,7 @@ SELECT
     SELECT
       j.JOB_TITLE
     FROM
-      jobs AS j
+      hr.jobs AS j
     WHERE
       j.JOB_ID = e.JOB_ID
   ) AS 'Cargo',
@@ -33,7 +33,7 @@ SELECT
     WHEN ROUND(AVG(SALARY), 2) > 10500 THEN 'CEO'
   END AS 'Senioridade'
 FROM
-  employees AS e
+  hr.employees AS e
 GROUP BY
   JOB_ID
 ORDER BY

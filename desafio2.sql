@@ -30,5 +30,5 @@ SELECT
     WHEN MAX_SALARY > 30000 THEN 'Altíssimo'
   END AS Nível
 FROM
-  jobs
+  hr.jobs
   ORDER BY JOB_TITLE ASC;

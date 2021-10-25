@@ -14,16 +14,16 @@ SELECT
     (SELECT 
             j.JOB_TITLE
         FROM
-            jobs AS j
+            hr.jobs AS j
         WHERE
             j.JOB_ID = e.JOB_ID) AS 'Cargo',
     HIRE_DATE AS 'Data de início do cargo',
     (SELECT 
             d.DEPARTMENT_NAME
         FROM
-            departments AS d
+            hr.departments AS d
         WHERE
             d.DEPARTMENT_ID = e.DEPARTMENT_ID) AS Departamento
 FROM
-    employees AS e
+    hr.employees AS e
 ORDER BY 'Nome completo' DESC , Cargo ASC;
