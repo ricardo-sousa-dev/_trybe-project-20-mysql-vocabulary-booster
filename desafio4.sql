@@ -38,4 +38,4 @@ GROUP BY
   JOB_ID
 ORDER BY
   `Média salarial`,
-  Cargo;
+  `Cargo`;
