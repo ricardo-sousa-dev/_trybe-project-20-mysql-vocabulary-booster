@@ -37,5 +37,5 @@ FROM
 GROUP BY
   JOB_ID
 ORDER BY
-  'Média salarial',
+  `Média salarial`,
   Cargo;
