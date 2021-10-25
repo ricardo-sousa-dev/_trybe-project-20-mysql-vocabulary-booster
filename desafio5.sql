@@ -17,3 +17,12 @@
 
 -- Em caso de empate na variação, os resultados devem ser ordenados pelo nome do cargo em ordem alfabética.
 
+SELECT 
+    JOB_TITLE AS Cargo,
+    (MAX_SALARY - MIN_SALARY) AS 'Variação Salarial',
+    ROUND(AVG(MIN_SALARY), 2) AS 'Média mínima mensal',
+    ROUND(AVG(MAX_SALARY), 2) AS 'Média máxima mensal'
+FROM
+    jobs
+GROUP BY JOB_TITLE
+ORDER BY 'Variação Salarial' ASC, Cargo;
