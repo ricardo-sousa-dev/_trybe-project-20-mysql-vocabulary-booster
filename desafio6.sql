@@ -10,20 +10,16 @@
 -- Em caso de empate no nome completo, ordene os resultados pelo nome do cargo em ordem alfabética.
 
 SELECT 
-    CONCAT(FIRST_NAME, ' ', LAST_NAME) AS 'Nome completo',
-    (SELECT 
-            j.JOB_TITLE
-        FROM
-            hr.jobs AS j
-        WHERE
-            j.JOB_ID = e.JOB_ID) AS 'Cargo',
-    HIRE_DATE AS 'Data de início do cargo',
-    (SELECT 
-            d.DEPARTMENT_NAME
-        FROM
-            hr.departments AS d
-        WHERE
-            d.DEPARTMENT_ID = e.DEPARTMENT_ID) AS Departamento
+    CONCAT(e.FIRST_NAME, ' ', e.LAST_NAME) AS 'Nome completo',
+    j.JOB_TITLE AS 'Cargo',
+    jh.START_DATE AS 'Data de início do cargo',
+    d.DEPARTMENT_NAME AS Departamento
 FROM
     hr.employees AS e
-ORDER BY `Nome completo` DESC , Cargo ASC;
+        INNER JOIN
+    job_history AS jh ON e.EMPLOYEE_ID = jh.EMPLOYEE_ID
+        INNER JOIN
+    jobs AS j ON jh.JOB_ID = j.JOB_ID
+        INNER JOIN
+    departments AS d ON jh.DEPARTMENT_ID = d.DEPARTMENT_ID
+ORDER BY 1 DESC , 2 ASC;
