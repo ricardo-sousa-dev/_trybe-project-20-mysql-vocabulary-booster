@@ -9,9 +9,16 @@
 -- Em caso de empate no nome completo, ordene os resultados pela data de início que a pessoa iniciou seu cargo, em ordem crescente.
 
 SELECT 
-    CONCAT(UCASE(FIRST_NAME), ' ', UCASE(LAST_NAME)) AS 'Nome completo',
-    HIRE_DATE AS 'Data de início',
-    SALARY AS Salário
+    CONCAT(UCASE(e.FIRST_NAME),
+            ' ',
+            UCASE(e.LAST_NAME)) AS 'Nome completo',
+    jh.START_DATE AS 'Data de início',
+    e.SALARY AS 'Salário'
 FROM
-    hr.employees
-ORDER BY FIRST_NAME, LAST_NAME, HIRE_DATE;
+    hr.employees AS e
+        INNER JOIN
+    job_history AS jh ON e.EMPLOYEE_ID = jh.EMPLOYEE_ID
+        AND (MONTH(jh.START_DATE) IN (1 , 2, 3))
+        INNER JOIN
+    departments AS d ON jh.DEPARTMENT_ID = d.DEPARTMENT_ID
+ORDER BY 1 ASC , 2 ASC;
