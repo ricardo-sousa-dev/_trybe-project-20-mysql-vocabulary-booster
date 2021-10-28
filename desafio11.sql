@@ -25,4 +25,4 @@ WHERE
     a.Country = b.Country
         AND a.CustomerID <> b.CustomerID
 GROUP BY a.CustomerID
-ORDER BY a.ContactName
+ORDER BY a.ContactName;
