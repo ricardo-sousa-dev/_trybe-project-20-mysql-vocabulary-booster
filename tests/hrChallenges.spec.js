@@ -101,7 +101,7 @@ describe('Desafios iniciais', () => {
     });
   });
 
-  describe.only('15 - Crie uma procedure chamada `buscar_media_por_cargo` que recebe como parâmetro o nome de um cargo e em retorno deve mostrar a média salarial de todas as pessoas que possuem esse cargo', () => {
+  describe('15 - Crie uma procedure chamada `buscar_media_por_cargo` que recebe como parâmetro o nome de um cargo e em retorno deve mostrar a média salarial de todas as pessoas que possuem esse cargo', () => {
     it('Verifica o desafio 15', async () => {
       const challengeQuery = readFileSync('desafio15.sql', 'utf8').trim();
       const createProcedureQuery = /CREATE PROCEDURE.*END/si.exec(challengeQuery)[0];
@@ -115,7 +115,7 @@ describe('Desafios iniciais', () => {
     });
   });
 
-  describe('16 - Crie uma função chamada `buscar_quantidade_de_empregos_por_funcionario` no banco de dados `hr` que, ao receber o **email de uma pessoa funcionária**, retorne a quantidade de empregos **presentes em seu histórico**', () => {
+  describe.only('16 - Crie uma função chamada `buscar_quantidade_de_empregos_por_funcionario` no banco de dados `hr` que, ao receber o **email de uma pessoa funcionária**, retorne a quantidade de empregos **presentes em seu histórico**', () => {
     it('Verifica o desafio 16', async () => {
       const challengeQuery = readFileSync('desafio16.sql', 'utf8').trim();
       const createFunctionQuery = /CREATE FUNCTION.*END/si.exec(challengeQuery)[0];
