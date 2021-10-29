@@ -15,8 +15,6 @@ BEGIN
     RETURN quant_func;
 END $$
 DELIMITER ;
--- Como usar:
-SELECT buscar_quantidade_de_empregos_por_funcionario('NKOCHHAR');
 
-SELECT EMPLOYEE_ID, COUNT(*) FROM hr.job_history
-WHERE EMPLOYEE_ID = 101;
+-- Como usar:
+-- SELECT buscar_quantidade_de_empregos_por_funcionario('NKOCHHAR');
